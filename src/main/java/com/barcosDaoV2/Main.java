@@ -1,17 +1,39 @@
 package com.barcosDaoV2;
 
+import com.barcosDaoV2.model.Amarre;
+import com.barcosDaoV2.model.Barco;
+import com.barcosDaoV2.utils.HibernateUtils;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Barco barco = new Barco();
+        barco.setNombre("Barco Ejemplo");
+        barco.setTipo("Velero");
+        barco.setEslora(10);
+        barco.setManga(3);
+        barco.setCapacidad(6);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Amarre amarre = new Amarre();
+        amarre.setUbicacion("A-1");
+        amarre.setPrecio(1500.0);
+        amarre.setProfundidad(5);
+        amarre.setLongitud(12);
+        amarre.setElectricidad(true);
+
+        barco.setAmarre(amarre);
+        amarre.setBarco(barco);
+
+        try (Session session =
+                     HibernateUtils.getSessionFactory().openSession()) {
+            Transaction transaction =
+                    session.beginTransaction();
+            session.save(barco);
+            session.save(amarre);
+            transaction.commit();
         }
     }
 }
