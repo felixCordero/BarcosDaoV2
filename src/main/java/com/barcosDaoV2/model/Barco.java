@@ -1,6 +1,7 @@
 package com.barcosDaoV2.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Barco {
+    @Id
     private Long id;
     private String nombre;
     private String tipo;
