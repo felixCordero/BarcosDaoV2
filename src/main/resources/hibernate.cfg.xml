@@ -18,5 +18,6 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <mapping class="com.barcosDaoV2.model.Barco"/>
         <mapping class="com.barcosDaoV2.model.Amarre"/>
+        <mapping class="com.barcosDaoV2.model.Regata"/>
     </session-factory>
 </hibernate-configuration>

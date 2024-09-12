@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -24,4 +27,8 @@ public class Barco {
     private int capacidad;
     @OneToOne(mappedBy = "barco", cascade = CascadeType.ALL)
     private Amarre amarre;
+    @ManyToMany
+    @JoinTable(name = "barco_regata", joinColumns = @JoinColumn(name = "barco_id"),
+            inverseJoinColumns = @JoinColumn(name = "regata_id"))
+    private List<Regata> regatas = new ArrayList<Regata>();
 }
