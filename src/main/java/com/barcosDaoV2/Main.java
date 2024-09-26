@@ -1,18 +1,28 @@
 package com.barcosDaoV2;
 
+import com.barcosDaoV2.dao.*;
 import com.barcosDaoV2.model.Amarre;
 import com.barcosDaoV2.model.Barco;
 import com.barcosDaoV2.model.Regata;
 import com.barcosDaoV2.utils.HibernateUtils;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import org.hibernate.cfg.Configuration;
 import java.util.Date;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        // Configurar el hibernate no se si hace falta realmente
+        Configuration configuration = new Configuration().configure();
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        // En Openwebinar lo hace de este modo
+        //Session session = HibernateUtils.getSessionFactory().openSession();
+        //session.beginTransaction();
+
         Barco barco1 = new Barco();
         barco1.setNombre("Bribon");
         barco1.setTipo("Velero");
@@ -26,6 +36,13 @@ public class Main {
         barco2.setEslora(10);
         barco2.setManga(3);
         barco2.setCapacidad(6);
+
+        Barco barco3 = new Barco();
+        barco3.setNombre("Guebon2");
+        barco3.setTipo("Velero/motor");
+        barco3.setEslora(10);
+        barco3.setManga(4);
+        barco3.setCapacidad(5);
 
         Amarre amarre1 = new Amarre();
         amarre1.setUbicacion("A-1");
@@ -41,11 +58,11 @@ public class Main {
         amarre2.setLongitud(12);
         amarre2.setElectricidad(true);
 
-        Regata regata = new Regata();
-        regata.setNombre("Regata Ejemplo");
-        regata.setLugar("Mar Mediterráneo");
-        regata.setFecha(new Date());
-        regata.setDistancia(100);
+        Regata regata1 = new Regata();
+        regata1.setNombre("Regata Ejemplo");
+        regata1.setLugar("Mar Mediterráneo");
+        regata1.setFecha(new Date());
+        regata1.setDistancia(100);
 
 
         barco1.setAmarre(amarre1);
@@ -55,24 +72,22 @@ public class Main {
 
         // Agregar barcos a la lista de barcos en la regata
 
-        regata.getBarcos().add(barco1);
-        regata.getBarcos().add(barco2);
+        regata1.getBarcos().add(barco1);
+        regata1.getBarcos().add(barco2);
 
         // Agregar la regata a la lista de regatas en los barcos
 
-        barco1.getRegatas().add(regata);
-        barco2.getRegatas().add(regata);
-
+        barco1.getRegatas().add(regata1);
+        barco2.getRegatas().add(regata1);
 
 
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            session.persist(barco1);
-            session.persist(amarre1);
-            session.persist(barco2);
-            session.persist(amarre2);
-            session.persist(regata);
-            transaction.commit();
+            BarcoDao barcoDao = new BarcoDaoImpl(sessionFactory);
+            RegataDao regataDao = new RegataDaoImpl(sessionFactory);
+            AmarreDaoImpl amarreDao = new AmarreDaoImpl(sessionFactory);
+            regataDao.crear(regata1);
+            barcoDao.crear(barco1);
+            amarreDao.crear(amarre1);
         }
     }
 }
