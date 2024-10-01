@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f950e47-4b95-43a7-9b95-41ebb3528665" name="Changes" comment="Añadido interface Generic y metodos Crear funcionando">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDaoImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="4f950e47-4b95-43a7-9b95-41ebb3528665" name="Changes" comment="Añadido salvar y buscar todos los barcos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +79,7 @@
       <workItem from="1727278134744" duration="10228000" />
       <workItem from="1727292826176" duration="9276000" />
       <workItem from="1727348416229" duration="8790000" />
-      <workItem from="1727800886918" duration="6845000" />
+      <workItem from="1727800886918" duration="7161000" />
     </task>
     <task id="LOCAL-00001" summary="Agregado Barco">
       <option name="closed" value="true" />
@@ -141,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727824423812</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Añadido salvar y buscar todos los barcos">
+      <option name="closed" value="true" />
+      <created>1727826544759</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727826544759</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +167,8 @@
     <MESSAGE value="Amarre agregado, conexion a BBDD, Utils, agregados primeros datos a bbdd" />
     <MESSAGE value="Regata añadido, funcionando en la bbdd" />
     <MESSAGE value="Añadido interface Generic y metodos Crear funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido interface Generic y metodos Crear funcionando" />
+    <MESSAGE value="Añadido salvar y buscar todos los barcos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido salvar y buscar todos los barcos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
