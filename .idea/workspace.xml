@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f950e47-4b95-43a7-9b95-41ebb3528665" name="Changes" comment="Regata añadido, funcionando en la bbdd">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/AmarreDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/AmarreDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/GenericDaoBarcos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/RegataDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/RegataDaoImpl.java" afterDir="false" />
+    <list default="true" id="4f950e47-4b95-43a7-9b95-41ebb3528665" name="Changes" comment="Añadido interface Generic y metodos Crear funcionando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDaoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +25,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="349ef702-48af-4a70-877c-1fed183e7bed" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/barcosDaoV2/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -79,7 +81,9 @@
       <workItem from="1726155163228" duration="5175000" />
       <workItem from="1727016582082" duration="4253000" />
       <workItem from="1727278134744" duration="10228000" />
-      <workItem from="1727292826176" duration="5932000" />
+      <workItem from="1727292826176" duration="9276000" />
+      <workItem from="1727348416229" duration="8790000" />
+      <workItem from="1727800886918" duration="4941000" />
     </task>
     <task id="LOCAL-00001" summary="Agregado Barco">
       <option name="closed" value="true" />
@@ -113,16 +117,48 @@
       <option name="project" value="LOCAL" />
       <updated>1726160252457</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Añadido interface Generic y metodos Crear funcionando">
+      <option name="closed" value="true" />
+      <created>1727310079267</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727310079267</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Añadido interface Generic y metodos Crear funcionando">
+      <option name="closed" value="true" />
+      <created>1727310097282</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727310097282</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Agregado Barco" />
     <MESSAGE value="Amarre agregado, conexion a BBDD, Utils, agregados primeros datos a bbdd" />
     <MESSAGE value="Regata añadido, funcionando en la bbdd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Regata añadido, funcionando en la bbdd" />
+    <MESSAGE value="Añadido interface Generic y metodos Crear funcionando" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido interface Generic y metodos Crear funcionando" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

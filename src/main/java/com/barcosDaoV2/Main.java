@@ -7,7 +7,7 @@ import com.barcosDaoV2.model.Regata;
 import com.barcosDaoV2.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+
 
 import org.hibernate.cfg.Configuration;
 import java.util.Date;
@@ -88,6 +88,16 @@ public class Main {
             regataDao.crear(regata1);
             barcoDao.crear(barco1);
             amarreDao.crear(amarre1);
+            barcoDao.crear(barco2);
+            amarreDao.crear(amarre2);
+            barcoDao.crear(barco3);
+            Barco barcoObtenido = barcoDao.obtener(3);
+            String mensaje = (barcoObtenido == null)
+                    ? "Ese barco no está en la base de datos"
+                    : "Nombre: "+barcoObtenido.getNombre()+" Id: "+ barcoObtenido.getId();
+            System.out.println(mensaje);
+            barcoDao.delete(4);
+            barcoDao.saveorupdate(barco1);
         }
     }
 }
