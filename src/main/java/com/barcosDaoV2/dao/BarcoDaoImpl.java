@@ -40,10 +40,8 @@ public class BarcoDaoImpl implements BarcoDao {
     public void saveorupdate(Barco barco) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Barco updatedBarco = new Barco();
-        updatedBarco.setNombre("nuevoBribon");
-        updatedBarco.setId(barco.getId());
-        session.merge(updatedBarco);
+        barco.setNombre("nuevoBribon");
+        session.merge(barco);
         transaction.commit();
         session.close();
     }
@@ -60,8 +58,14 @@ public class BarcoDaoImpl implements BarcoDao {
         try {
             session = HibernateUtils.getSessionFactory().openSession();
             tx =session.beginTransaction();
-            session.remove(session.find(Barco.class, id));
-            tx.commit();
+            Barco barcoBorrar = obtener(id);
+            if (barcoBorrar != null) {
+                System.out.println("eliminando barco");
+                session.remove(barcoBorrar);
+                tx.commit();
+            }else {
+                System.out.println("El barco no existe en la base de datos");
+            }
         }catch (HibernateException e){
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -76,6 +80,9 @@ public class BarcoDaoImpl implements BarcoDao {
 
     @Override
     public List<Barco> findAll() {
-        return List.of();
+        Session session = sessionFactory.openSession();
+        List<Barco> barcos = session.createQuery("from Barco", Barco.class).list();
+        session.close();
+        return barcos;
     }
 }

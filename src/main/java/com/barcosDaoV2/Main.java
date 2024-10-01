@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 
 import org.hibernate.cfg.Configuration;
 import java.util.Date;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -84,7 +85,7 @@ public class Main {
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             BarcoDao barcoDao = new BarcoDaoImpl(sessionFactory);
             RegataDao regataDao = new RegataDaoImpl(sessionFactory);
-            AmarreDaoImpl amarreDao = new AmarreDaoImpl(sessionFactory);
+            AmarreDao amarreDao = new AmarreDaoImpl(sessionFactory);
             regataDao.crear(regata1);
             barcoDao.crear(barco1);
             amarreDao.crear(amarre1);
@@ -96,8 +97,12 @@ public class Main {
                     ? "Ese barco no está en la base de datos"
                     : "Nombre: "+barcoObtenido.getNombre()+" Id: "+ barcoObtenido.getId();
             System.out.println(mensaje);
-            barcoDao.delete(4);
+            barcoDao.delete(1);
             barcoDao.saveorupdate(barco1);
+            List<Barco> barcos = barcoDao.findAll();
+            for (Barco barco : barcos) {
+                System.out.println(barco.getNombre());
+            }
         }
     }
 }
