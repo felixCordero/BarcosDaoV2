@@ -50,6 +50,7 @@ public class BarcoDaoImpl implements BarcoDao {
     public Barco obtener(Integer id) {
             Session session = sessionFactory.openSession();
             Barco barcoObtenido = session.get(Barco.class, id);
+            session.close();
             return barcoObtenido;
     }
 
@@ -62,6 +63,7 @@ public class BarcoDaoImpl implements BarcoDao {
             if (barcoBorrar != null) {
                 System.out.println("eliminando barco");
                 session.remove(barcoBorrar);
+                session.flush();
                 tx.commit();
             }else {
                 System.out.println("El barco no existe en la base de datos");
@@ -69,8 +71,9 @@ public class BarcoDaoImpl implements BarcoDao {
         }catch (HibernateException e){
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
-                System.out.println("Error al borrar el Barco");
             }
+            System.out.println("Error al borrar el Barco"+e.getMessage());
+            e.printStackTrace();
         }finally {
             if (session != null) {
                 session.close();

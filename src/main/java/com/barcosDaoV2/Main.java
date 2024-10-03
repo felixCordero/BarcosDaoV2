@@ -5,11 +5,13 @@ import com.barcosDaoV2.model.Amarre;
 import com.barcosDaoV2.model.Barco;
 import com.barcosDaoV2.model.Regata;
 import com.barcosDaoV2.utils.HibernateUtils;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 
 import org.hibernate.cfg.Configuration;
+
 import java.util.Date;
 import java.util.List;
 
@@ -86,23 +88,36 @@ public class Main {
             BarcoDao barcoDao = new BarcoDaoImpl(sessionFactory);
             RegataDao regataDao = new RegataDaoImpl(sessionFactory);
             AmarreDao amarreDao = new AmarreDaoImpl(sessionFactory);
-            regataDao.crear(regata1);
-            barcoDao.crear(barco1);
-            amarreDao.crear(amarre1);
-            barcoDao.crear(barco2);
-            amarreDao.crear(amarre2);
-            barcoDao.crear(barco3);
-            Barco barcoObtenido = barcoDao.obtener(3);
-            String mensaje = (barcoObtenido == null)
+//            regataDao.crear(regata1);
+//            barcoDao.crear(barco1);
+//            amarreDao.crear(amarre1);
+//            barcoDao.crear(barco2);
+//            amarreDao.crear(amarre2);
+//            barcoDao.crear(barco3);
+//            Barco barcoObtenido = barcoDao.obtener(3);
+//            String mensaje = (barcoObtenido == null)
+//                    ? "Ese barco no está en la base de datos"
+//                    : "Nombre: "+barcoObtenido.getNombre()+" Id: "+ barcoObtenido.getId();
+//            System.out.println(mensaje);
+//            barcoDao.delete(1);
+//            barcoDao.saveorupdate(barco1);
+//            List<Barco> barcos = barcoDao.findAll();
+//            for (Barco barco : barcos) {
+//                System.out.println(barco.getNombre());
+//            }
+            Amarre amarreObtenido = amarreDao.obtener(2);
+            amarreDao.saveorupdate(amarreObtenido);
+            String mensaje = (amarreObtenido == null)
                     ? "Ese barco no está en la base de datos"
-                    : "Nombre: "+barcoObtenido.getNombre()+" Id: "+ barcoObtenido.getId();
+                    : "Nombre: " + amarreObtenido.getUbicacion() + " Id: " + amarreObtenido.getId();
             System.out.println(mensaje);
-            barcoDao.delete(1);
-            barcoDao.saveorupdate(barco1);
-            List<Barco> barcos = barcoDao.findAll();
-            for (Barco barco : barcos) {
-                System.out.println(barco.getNombre());
+            amarreDao.delete(12);
+            List<Amarre> amarres = amarreDao.findAll();
+            for (Amarre amarre : amarres) {
+                System.out.println(amarre.getUbicacion());
             }
+
         }
+        sessionFactory.close();
     }
 }
