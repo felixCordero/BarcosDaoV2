@@ -25,6 +25,6 @@ public class Regata {
     private Date fecha;
     @Column(name = "distancia")
     private  int distancia;
-    @ManyToMany(mappedBy = "regatas")
+    @ManyToMany(mappedBy = "regatas",fetch = FetchType.EAGER)
     private List<Barco> barcos = new ArrayList<Barco>();
 }

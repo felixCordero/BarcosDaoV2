@@ -67,6 +67,12 @@ public class Main {
         regata1.setFecha(new Date());
         regata1.setDistancia(100);
 
+        Regata regata2 = new Regata();
+        regata2.setNombre("Regata Dos");
+        regata2.setLugar("Mar Cantabrico");
+        regata2.setFecha(new Date());
+        regata2.setDistancia(200);
+
 
         barco1.setAmarre(amarre1);
         amarre1.setBarco(barco1);
@@ -77,6 +83,7 @@ public class Main {
 
         regata1.getBarcos().add(barco1);
         regata1.getBarcos().add(barco2);
+        regata2.getBarcos().add(barco3);
 
         // Agregar la regata a la lista de regatas en los barcos
 
@@ -105,6 +112,7 @@ public class Main {
 //            for (Barco barco : barcos) {
 //                System.out.println(barco.getNombre());
 //            }
+            //regataDao.crear(regata2);
             Amarre amarreObtenido = amarreDao.obtener(2);
             amarreDao.saveorupdate(amarreObtenido);
             String mensaje = (amarreObtenido == null)
@@ -116,7 +124,13 @@ public class Main {
             for (Amarre amarre : amarres) {
                 System.out.println(amarre.getUbicacion());
             }
-
+            regataDao.saveorupdate(regata2);
+            Regata regataObtenida = regataDao.obtener(10);
+            String mensaje2 = ( regataObtenida== null)
+                    ? "Ese regata no está en la base de datos"
+                    : "Nombre: " + regataObtenida.getLugar() + " Id: " + regataObtenida.getId();
+            System.out.println(mensaje2);
+            regataDao.delete(5);
         }
         sessionFactory.close();
     }

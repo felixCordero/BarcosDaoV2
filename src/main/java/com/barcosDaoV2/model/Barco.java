@@ -27,7 +27,7 @@ public class Barco {
     private int capacidad;
     @OneToOne(mappedBy = "barco", cascade = CascadeType.ALL)
     private Amarre amarre;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "barco_regata", joinColumns = @JoinColumn(name = "barco_id"),
             inverseJoinColumns = @JoinColumn(name = "regata_id"))
     private List<Regata> regatas = new ArrayList<Regata>();
