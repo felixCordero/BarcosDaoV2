@@ -131,6 +131,7 @@ public class Main {
                     : "Nombre: " + regataObtenida.getLugar() + " Id: " + regataObtenida.getId();
             System.out.println(mensaje2);
             regataDao.delete(5);
+            System.out.println(barcoDao.findByNombre("Guebon2"));
         }
         sessionFactory.close();
     }

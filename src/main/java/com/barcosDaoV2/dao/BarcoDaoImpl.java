@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -88,4 +89,41 @@ public class BarcoDaoImpl implements BarcoDao {
         session.close();
         return barcos;
     }
+    // Metodo con query en HQL nativo
+    @Override
+    public List<Barco> findByNombre(String nombre) {
+        try (Session session =
+                     HibernateUtils.getSessionFactory().openSession()) {
+            return session.createQuery("from Barco where nombre = :nombre", Barco.class)
+                    .setParameter("nombre", nombre)
+                    .list();
+        }
+    }
+    // Metodo con SQL
+    /*public List<Barco> findByNombre(String nombre) {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+            Query query = session.createNativeQuery("SELECT * FROM Barco WHERE nombre_barco = :nombre", Barco.class);
+            query.setParameter("nombre", nombre);
+            return (List<Barco>) query.list();
+        }
+    }*/
+    @Override
+    public List<Barco> findByNombreOrderByCapacidadDesc(String nombre) {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+            return session.createQuery("from Barco where nombre = :nombre order by capacidad desc", Barco.class)
+                    .setParameter("nombre", nombre)
+                    .getResultList();
+        }
+    }
+
+    @Override
+    public Long countByTipo(String tipo) {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+            return session.createQuery("select count(*) from Barco where tipo = :tipo", Long.class)
+                    .setParameter("tipo", tipo)
+                    .uniqueResult();
+        }
+    }
+
+    // Mas ejemplos (uno de contar) en los apuntes
 }

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f950e47-4b95-43a7-9b95-41ebb3528665" name="Changes" comment="Interface Amarre con sus CRUD, añadido y funcionando">
+    <list default="true" id="4f950e47-4b95-43a7-9b95-41ebb3528665" name="Changes" comment="Implemetados metodos Regata y funcionando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/RegataDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/RegataDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/model/Barco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/model/Barco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/model/Regata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/model/Regata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barcosDaoV2/dao/BarcoDaoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,8 @@
       <workItem from="1727882352956" duration="4730000" />
       <workItem from="1727908495967" duration="5526000" />
       <workItem from="1728348433662" duration="18000" />
-      <workItem from="1728510412357" duration="4057000" />
+      <workItem from="1728510412357" duration="4309000" />
+      <workItem from="1728597090857" duration="4699000" />
     </task>
     <task id="LOCAL-00001" summary="Agregado Barco">
       <option name="closed" value="true" />
@@ -171,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727915265146</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implemetados metodos Regata y funcionando">
+      <option name="closed" value="true" />
+      <created>1728514661648</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728514661648</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +203,8 @@
     <MESSAGE value="Añadido interface Generic y metodos Crear funcionando" />
     <MESSAGE value="Añadido salvar y buscar todos los barcos" />
     <MESSAGE value="Interface Amarre con sus CRUD, añadido y funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interface Amarre con sus CRUD, añadido y funcionando" />
+    <MESSAGE value="Implemetados metodos Regata y funcionando" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemetados metodos Regata y funcionando" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
